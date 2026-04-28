@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 env:
-  SCHEME: GlassBackport
+  SCHEME: swiftui-glass-type-backport
 
 jobs:
   swiftpm:
