@@ -1,0 +1,15 @@
+{
+  "originHash" : "e653bb22c20a0c184eb0320f0590876c9220085241b7ea2e0e67dd33ac7abf3e",
+  "pins" : [
+    {
+      "identity" : "swift-backport-pattern",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/inekipelov/swift-backport-pattern",
+      "state" : {
+        "revision" : "4f91be0ee442fffbe5ac9b6ca2028f43c8408d44",
+        "version" : "0.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
