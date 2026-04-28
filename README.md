@@ -1,11 +1,10 @@
 # GlassBackport
 
-`GlassBackport` is a tiny Swift Package that backports only one SwiftUI-related
-API surface: `Backported.Glass`.
+`GlassBackport` is a tiny Swift Package that backports the modern
+`SwiftUI.Glass` type through the reusable `Backport` wrapper.
 
-It builds on top of
-[`Backport`](https://github.com/inekipelov/swift-backport-pattern) and keeps the
-backport wrapper pattern consistent with the source package.
+It builds on [`swift-backport-pattern`](https://github.com/inekipelov/swift-backport-pattern)
+and focuses on one API surface: `Backported.Glass`.
 
 <p align="center">
   <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-6.0+-F05138?logo=swift&logoColor=white" alt="Swift 6.0+"></a>
@@ -19,17 +18,27 @@ backport wrapper pattern consistent with the source package.
 ## Usage
 
 ```swift
-import Backport
+import SwiftUI
 import GlassBackport
 
 let regular = Backported.Glass.regular
 let clear = Backported.Glass.clear
 let identity = Backported.Glass.identity
 
-let tintedInteractive = Backported.Glass.regular
+let custom = Backported.Glass.regular
+    .interactive(true)
     .tint(.blue)
-    .interactive()
 ```
+
+Available helpers:
+
+| Backport type | Behavior |
+| --- | --- |
+| `Backported.Glass.regular` | Mirrors `SwiftUI.Glass.regular`. |
+| `Backported.Glass.clear` | Mirrors `SwiftUI.Glass.clear`. |
+| `Backported.Glass.identity` | Mirrors `SwiftUI.Glass.identity`. |
+| `.interactive(_:)` | Stores interactivity intent for native glass bridging where available. |
+| `.tint(_:)` | Stores tint intent for native glass bridging where available. |
 
 ## Installation
 
@@ -39,8 +48,13 @@ Add the package to your `Package.swift` dependencies:
 .package(url: "https://github.com/inekipelov/swiftui-glass-type-backport.git", from: "0.0.1")
 ```
 
-## Dependency
+Then add `GlassBackport` to your target dependencies:
 
-This package depends on:
+```swift
+.product(name: "GlassBackport", package: "swiftui-glass-type-backport")
+```
 
-- [Backport](https://github.com/inekipelov/swift-backport-pattern)
+`GlassBackport` depends on
+[`swift-backport-pattern`](https://github.com/inekipelov/swift-backport-pattern)
+for the `Backport` wrapper. The package re-exports `Backport`, so importing
+`GlassBackport` is enough.
