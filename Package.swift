@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "GlassBackport",
+    name: "swiftui-glass-type-backport",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15),
