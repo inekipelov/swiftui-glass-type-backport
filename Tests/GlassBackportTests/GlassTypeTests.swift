@@ -1,7 +1,7 @@
 import SwiftUI
 import Backport
 import Testing
-@testable import GlassBackport
+import GlassBackport
 
 struct GlassTypeTests {
     @Test
@@ -16,4 +16,13 @@ struct GlassTypeTests {
 
         _ = Backported.Glass.identity
     }
+
+    #if !os(visionOS)
+    @Test
+    func exposesSwiftUIGlassForClients() {
+        if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, *) {
+            _ = Backported.Glass.regular.swiftUIGlass
+        }
+    }
+    #endif
 }
