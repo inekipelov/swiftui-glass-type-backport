@@ -45,7 +45,7 @@ Available helpers:
 Add the package to your `Package.swift` dependencies:
 
 ```swift
-.package(url: "https://github.com/inekipelov/swiftui-glass-type-backport.git", from: "0.0.1")
+.package(url: "https://github.com/inekipelov/swiftui-glass-type-backport.git", from: "0.1.0")
 ```
 
 Then add `GlassBackport` to your target dependencies:
